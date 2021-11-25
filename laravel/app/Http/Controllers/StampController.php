@@ -91,4 +91,8 @@ class StampController extends Controller
         }
         return abort(403);
     }
+
+    public function get(){
+        // スタンプゲット処理
+    }
 }
