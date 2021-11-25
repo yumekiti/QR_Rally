@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+
+use App\Stamp;
+
 class StampController extends Controller
 {
     /**
@@ -14,6 +18,10 @@ class StampController extends Controller
     public function index()
     {
         //
+        if(Auth::user()->id == 1){
+            return Stamp::all();
+        }
+        return abort(403);
     }
 
     /**

@@ -31,4 +31,12 @@ Route::middleware(['auth:sanctum'])->group(function () {
         Route::delete('/', 'UserController@destroy');   // 削除
     });
 
+    // stamp関連
+    Route::group(['prefix' => 'stamp'], function () {
+        Route::get('/', 'StampController@index');       // 取得
+        Route::post('/', 'StampController@store');      // 作成
+        Route::put('/', 'StampController@update');      // 編集
+        Route::delete('/', 'StampController@destroy');  // 削除
+    });
+
 });

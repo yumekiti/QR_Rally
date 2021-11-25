@@ -94,6 +94,6 @@ class UserController extends Controller
         }
 
         // 認証できなかったら以下を返す
-        return ['error' => ['メールアドレスまたはパスワードが違います。']];
+        return abort(401, 'メールアドレスまたはパスワードが違います。');
     }
 }

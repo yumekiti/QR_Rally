@@ -19,7 +19,7 @@ class StampTableSeeder extends Seeder
 
         foreach ($names as $name) {
             Stamp::create([
-                'name' => Hash::make($name),
+                'name' => $name,
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
             ]);
