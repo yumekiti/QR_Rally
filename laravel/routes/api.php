@@ -13,6 +13,15 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+// 認証前
+Route::post('/signup', 'UserController@signup');    // user作成
+Route::post('/signin', 'UserController@signin');    // user認証
+
+// 認証後
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/user', 'UserController@index');    // 認証済みuser取得
 });
