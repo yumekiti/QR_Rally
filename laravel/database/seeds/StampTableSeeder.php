@@ -3,7 +3,6 @@
 use Illuminate\Database\Seeder;
 
 use App\Stamp;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 class StampTableSeeder extends Seeder
@@ -21,7 +20,7 @@ class StampTableSeeder extends Seeder
         foreach ($names as $name) {
             Stamp::create([
                 'name' => $name,
-                'hash' => Hash::make(Str::random(10)),
+                'hash' => Str::random(100),
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
             ]);
