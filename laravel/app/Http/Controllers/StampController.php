@@ -33,6 +33,12 @@ class StampController extends Controller
     public function store(Request $request)
     {
         //
+        if(Auth::user()->id == 1){
+            return Stamp::create([
+                'name' => $request->input('name'),
+            ]);
+        }
+        return abort(403);
     }
 
     /**
