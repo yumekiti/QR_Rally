@@ -1,13 +1,31 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Test from '../views/Test.vue'
+import Test from '@/views/Test.vue'
+import Index from '@/views/Index.vue'
+import Signin from '@/views/Signin.vue'
+import Signup from '@/views/Signup.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    // 本番環境は消す
     path: '/',
+    name: 'Index',
+    component: Index
+  },
+  {
+    path: '/signin',
+    name: 'Signin',
+    component: Signin
+  },
+  {
+    path: '/signup',
+    name: 'Signup',
+    component: Signup
+  },
+  {
+    // 本番環境は消す
+    path: '/test',
     name: 'Test',
     component: Test
   },

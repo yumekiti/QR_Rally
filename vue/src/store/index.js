@@ -6,29 +6,31 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        data: [],
+        drawer: null, 
+        datas: [],
+        errors: [],
     },
     mutations: {
         set: (state, {response, url, httpMethod}) => {
             switch(httpMethod) {
                 case 'get': {
                     if(url.match(/\//)){
-                        state.data[url.substring(0, url.indexOf("/"))] = response.data
+                        state.datas[url.substring(0, url.indexOf("/"))] = response.data
                     }else{
-                        state.data[url] = response.data
+                        state.datas[url] = response.data
                     }
                     break
                 }
                 case 'post': {
-                    state.data[url].push(response.data)
+                    state.datas[url].push(response.data)
                     break
                 }
                 case 'put': {
-                    state.data[url.substring(0, url.indexOf("/"))] = response.data
+                    state.datas[url.substring(0, url.indexOf("/"))] = response.data
                     break
                 }
                 case 'delete': {
-                    state.data[url.substring(0, url.indexOf("/"))] = state.data[url.substring(0, url.indexOf("/"))].filter(item => {if(item.id != response.data) return true})
+                    state.datas[url.substring(0, url.indexOf("/"))] = state.datas[url.substring(0, url.indexOf("/"))].filter(item => {if(item.id != response.data) return true})
                     break
                 }
             }
