@@ -9,7 +9,7 @@ services:
             - 8080:80
         volumes:
             - ./nginx/:/etc/nginx/conf.d/
-            # - ../laravel/:/var/www/
+            - ../laravel/:/var/www/
         working_dir: /var/www/
   
     php:
