@@ -1,0 +1,76 @@
+version: "3"
+
+services:
+
+    nginx:
+        image: nginx:alpine
+        container_name: nginx
+        ports:
+            - 8080:80
+        volumes:
+            - ./nginx/:/etc/nginx/conf.d/
+            # - ../laravel/:/var/www/
+        working_dir: /var/www/
+  
+    php:
+        build: ./php/
+        user: $user
+        container_name: php
+        volumes:
+            - ../laravel/:/var/www/
+    
+    db:
+        image: mysql:5.7
+        container_name: db
+        environment:
+            MYSQL_DATABASE: database
+            MYSQL_USER: user
+            MYSQL_PASSWORD: password
+            MYSQL_ROOT_PASSWORD: root
+            TZ: Asia/Tokyo
+        volumes:
+            - ./mysql/my.cnf:/etc/mysql/my.cnf
+    
+    # node:
+    #     image: node:lts-alpine
+    #     container_name: node
+    #     volumes:
+    #         - ../laravel:/mnt/laravel
+    #     working_dir: /mnt/laravel
+    #     tty: true
+
+    # # laravel echo
+    # laravel-echo-server:
+    #     build: ./laravel-echo
+    #     container_name: laravel-echo
+    #     ports:
+    #       - 6001:6001
+    #     volumes:
+    #       - ./laravel-echo/:/work:cached
+
+    # redis:
+    #     image: redis:5
+    #     container_name: redis
+    #     ports:
+    #       - 6379:6379
+
+    # # react
+    # vue:
+    #     image: node:14.17.0
+    #     container_name: vue
+    #     working_dir: /mnt/vue
+    #     environment:
+    #         - CHOKIDAR_USEPOLLING=true
+    #         - NODE_OPTIONS="--max-old-space-size=1024"
+    #     volumes:
+    #         - ../vue:/mnt/vue/
+    #     command: [sh, -c, npm install && npm run serve -- --port 8080]
+
+    # # react
+    # react:
+    #     image: node:14.17.0
+    #     container_name: react
+    #     working_dir: /mnt/app/
+    #     volumes:
+    #         - ../app:/mnt/app/
+    #     command: [sh, -c, npm install && npm run start]
