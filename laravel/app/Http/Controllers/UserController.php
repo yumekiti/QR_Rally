@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\UserSigninRequest;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\UserPostRequest;
+
+use App\User;
 
 class UserController extends Controller
 {
@@ -26,9 +29,15 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserPostRequest $request)
     {
         //
+        // user作成
+        return User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('password')),
+        ]);
     }
 
     /**
@@ -66,7 +75,7 @@ class UserController extends Controller
     }
 
     // 認証
-    public function signin(UserSigninRequest $request){
+    public function signin(UserPostRequest $request){
         $email = $request->input('email');
         $password = $request->input('password');
 
