@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 use App\Stamp;
+use App\Achievement;
 
 class StampController extends Controller
 {
@@ -92,7 +93,21 @@ class StampController extends Controller
         return abort(403);
     }
 
-    public function get(){
-        // スタンプゲット処理
+    // スタンプゲット処理
+    public function get($hash){
+        $user = Auth::user();
+        $stamp = Stamp::where('hash', '=', $hash)->first();
+
+        // 受けとったhash存在する場合
+        if($stamp !== null){
+            $achievement = $user->achievement()->where('stamp_id', '=', $stamp->id)->first();
+
+            if($achievement === null){
+                $user->achievement()->attach($stamp->id);
+                $user->increment('stamp');
+                return $user->stamp;
+            }
+        }
+        return abort(204);
     }
 }

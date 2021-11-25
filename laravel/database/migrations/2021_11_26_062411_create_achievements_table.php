@@ -25,7 +25,8 @@ class CreateAchievementsTable extends Migration
             //複合主キー
             $table->primary(['user_id', 'stamp_id']);
 
-            $table->timestamps();
+            $table->timestamp('updated_at')->useCurrent();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 
