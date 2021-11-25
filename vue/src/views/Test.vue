@@ -37,6 +37,7 @@
         <v-btn @click="this.login">login</v-btn>
 
         <div>{{this.data}}</div>
+        <div>{{this.errors}}</div>
 
     </div>
 </template>
@@ -53,6 +54,7 @@ export default {
             name: '',
             email: '',
             password: '',
+            errors: null
         }
     },
     methods: {
@@ -75,6 +77,13 @@ export default {
             axios
                 .post('/api/' + this.url, formData)
                 .then(res => (this.data = res.data))
+                .catch(error => {
+                    if (error.response.status === 422) {
+                        this.errors = error.response.data.errors;
+                    } else {
+                        console.log("Error", error.response);
+                    }
+                })
         },
         put() {
             const formData = {
