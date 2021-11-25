@@ -92,5 +92,8 @@ class UserController extends Controller
             // 認証が通ったら認証されたuserを返す
             return Auth::user();
         }
+
+        // 認証できなかったら以下を返す
+        return ['error' => ['メールアドレスまたはパスワードが違います。']];
     }
 }
