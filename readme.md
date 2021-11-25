@@ -1,16 +1,3 @@
-# laravel template
+# 学生会_地球祭2021
 
-```
-cp -r docker/ makefile 任意フォルダ
-```
-
-## sql env
-
-```
-DB_CONNECTION=mysql
-DB_HOST=db
-DB_PORT=3306
-DB_DATABASE=database
-DB_USERNAME=user
-DB_PASSWORD=password
-```
+QRコードを使用したスタンプラリーのシステム開発
