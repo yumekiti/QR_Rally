@@ -62,6 +62,13 @@ class StampController extends Controller
     public function update(Request $request, $id)
     {
         //
+        if(Auth::user()->id == 1){
+            return Stamp::find($id)->
+            update([
+                'name' => $request->input('name'),
+            ]);
+        }
+        return abort(403);
     }
 
     /**

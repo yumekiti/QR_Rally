@@ -33,10 +33,11 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     // stamp関連
     Route::group(['prefix' => 'stamp'], function () {
-        Route::get('/', 'StampController@index');       // 取得
-        Route::post('/', 'StampController@store');      // 作成
-        Route::put('/', 'StampController@update');      // 編集
-        Route::delete('/', 'StampController@destroy');  // 削除
+        Route::get('/', 'StampController@index');           // 取得
+        Route::get('/{id}', 'StampController@show');        // 特定の取得
+        Route::post('/', 'StampController@store');          // 作成
+        Route::put('/{id}', 'StampController@update');      // 編集
+        Route::delete('/{id}', 'StampController@destroy');  // 削除
     });
 
 });
