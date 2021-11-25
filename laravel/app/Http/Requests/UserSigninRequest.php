@@ -26,7 +26,7 @@ class UserSigninRequest extends FormRequest
         return [
             //
             'email' => 'required|email|exists:users',
-            'password' => 'required',
+            'password' => 'required|min:8',
         ];
     }
     
@@ -39,8 +39,10 @@ class UserSigninRequest extends FormRequest
     {
         return [
             'email.required' => 'メールアドレスは必須です。',
+            'email.email' => '有効なメールアドレスでなければなりません。',
             'email.exists' => '入力したメールアドレスが見つかりません。',
             'password.required' => 'パスワードは必須です。',
+            'password.min' => 'パスワードを8文字以上でなければなりません。',
         ];
     }
 }

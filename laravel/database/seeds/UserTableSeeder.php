@@ -18,6 +18,13 @@ class UserTableSeeder extends Seeder
         factory(User::class)->create([
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
+            'name' => 'yumekiti',
+            'email' => 'admin@admin.admin',
+            'password' => Hash::make('hogehoge')
+        ]);
+        factory(User::class)->create([
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
             'name' => 'test1',
             'email' => 'test1@test.jp',
             'password' => Hash::make('testtest')
@@ -29,6 +36,6 @@ class UserTableSeeder extends Seeder
             'email' => 'test2@test.jp',
             'password' => bcrypt('testtest')
         ]);
-        factory(User::class, 48)->create();
+        factory(User::class, 47)->create();
     }
 }
