@@ -50,6 +50,10 @@ class StampController extends Controller
     public function show($id)
     {
         //
+        if(Auth::user()->id == 1){
+            return Stamp::find($id);
+        }
+        return abort(403);
     }
 
     /**
