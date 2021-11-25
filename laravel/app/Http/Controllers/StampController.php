@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 use App\Stamp;
 
@@ -36,6 +38,7 @@ class StampController extends Controller
         if(Auth::user()->id == 1){
             return Stamp::create([
                 'name' => $request->input('name'),
+                'hash' => Hash::make(Str::random(10)),
             ]);
         }
         return abort(403);
@@ -70,6 +73,7 @@ class StampController extends Controller
             return Stamp::find($id)->
             update([
                 'name' => $request->input('name'),
+                'hash' => Hash::make(Str::random(10)),
             ]);
         }
         return abort(403);

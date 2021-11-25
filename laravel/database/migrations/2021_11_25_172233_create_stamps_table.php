@@ -16,6 +16,7 @@ class CreateStampsTable extends Migration
         Schema::create('stamps', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->unique();
+            $table->string('hash')->unique();
             $table->timestamps();
         });
     }
