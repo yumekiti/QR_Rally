@@ -18,7 +18,7 @@ use Illuminate\Http\Request;
 // });
 
 // 認証前
-Route::post('/signup', 'UserController@signup');    // user作成
+Route::post('/signup', 'UserController@store');    // user作成
 Route::post('/signin', 'UserController@signin');    // user認証
 
 // 認証後
