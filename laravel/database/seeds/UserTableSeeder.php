@@ -20,7 +20,8 @@ class UserTableSeeder extends Seeder
             'updated_at' => new DateTime(),
             'name' => 'yumekiti',
             'email' => 'admin@admin.admin',
-            'password' => Hash::make('hogehoge')
+            'password' => Hash::make('hogehoge'),
+            'stamp' => 9999,
         ]);
         factory(User::class)->create([
             'created_at' => new DateTime(),
