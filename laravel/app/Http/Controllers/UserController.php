@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\UserPostRequest;
+use App\Http\Requests\UserRequest;
 
 use App\User;
 
@@ -29,7 +29,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserPostRequest $request)
+    public function store(UserRequest $request)
     {
         //
         // user作成

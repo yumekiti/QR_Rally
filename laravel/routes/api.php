@@ -24,4 +24,5 @@ Route::post('/signin', 'UserController@signin');    // user認証
 // 認証後
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/user', 'UserController@index');    // 認証済みuser取得
+    Route::put('/user', 'UserController@update');    // 認証済みuser取得
 });
