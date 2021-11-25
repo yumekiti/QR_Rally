@@ -23,6 +23,12 @@ Route::post('/signin', 'UserController@signin');    // user認証
 
 // 認証後
 Route::middleware(['auth:sanctum'])->group(function () {
-    Route::get('/user', 'UserController@index');    // 認証済みuser取得
-    Route::put('/user', 'UserController@update');    // 認証済みuser取得
+    
+    // user関連
+    Route::group(['prefix' => 'user'], function () {
+        Route::get('/', 'UserController@index');        // 取得
+        Route::put('/', 'UserController@update');       // 編集
+        Route::delete('/', 'UserController@destroy');   // 削除
+    });
+
 });

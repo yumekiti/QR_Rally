@@ -104,6 +104,13 @@ export default {
                 axios
                     .post('/api/' + this.url, postData)
                     .then(res => (this.data = res.data))
+                    .catch(error => {
+                    if (error.response.status === 422) {
+                        this.errors = error.response.data.errors;
+                    } else {
+                        console.log("Error", error.response);
+                    }
+                })
             });
         }
     },

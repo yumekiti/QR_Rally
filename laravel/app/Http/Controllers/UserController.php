@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\UserSigninRequest;
 
 use App\User;
 
@@ -82,7 +83,7 @@ class UserController extends Controller
     }
 
     // 認証
-    public function signin(UserPostRequest $request){
+    public function signin(UserSigninRequest $request){
         $email = $request->input('email');
         $password = $request->input('password');
 
@@ -91,8 +92,5 @@ class UserController extends Controller
             // 認証が通ったら認証されたuserを返す
             return Auth::user();
         }
-
-        // 認証できなかったら以下を返す
-        return ['error' => ['メールアドレスまたはパスワードが違います。']];
     }
 }
