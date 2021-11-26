@@ -4,21 +4,14 @@
             <p>スタンプカード</p>
             <v-row>
                 <v-col
-                    v-for="n in 9"
-                    :key="n"
+                    v-for="(n, index) in stamp.length"
+                    :key="index"
                     cols="4"
                     style="border: 1px solid;"
                 >
-                    <div v-if="num">
-                        <div class="pa-3 text-center" v-for="num in num" :key="num">
-                            <v-icon>
-                                {{n == num ? 'mdi-check-circle' : 'mdi-checkbox-blank-circle'}}
-                            </v-icon>
-                        </div>
-                    </div>
-                    <div class="pa-3 text-center" v-else>
-                        <v-icon>mdi-checkbox-blank-circle</v-icon>
-                    </div>
+                <div class="text-center pa-3">
+                    <v-icon>{{stamp[index].icon}}</v-icon>
+                </div>
                 </v-col>
             </v-row>
         </v-container>
@@ -27,8 +20,28 @@
 <script>
 export default {
     name: 'Card',
+    data: () => {
+        return{
+            stamp:[
+                {icon: 'mdi-checkbox-blank-circle'},
+                {icon: 'mdi-checkbox-blank-circle'},
+                {icon: 'mdi-checkbox-blank-circle'},
+                {icon: 'mdi-checkbox-blank-circle'},
+                {icon: 'mdi-checkbox-blank-circle'},
+                {icon: 'mdi-checkbox-blank-circle'},
+                {icon: 'mdi-checkbox-blank-circle'},
+                {icon: 'mdi-checkbox-blank-circle'},
+                {icon: 'mdi-checkbox-blank-circle'},
+            ]
+        }
+    },
     props: {
         num: Number
+    },
+    created() {
+        for(let i = 0; i < this.num; i++){
+            this.stamp[i].icon = 'mdi-check-circle'
+        }
     },
 }
 </script>
