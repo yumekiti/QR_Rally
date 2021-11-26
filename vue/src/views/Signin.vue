@@ -19,6 +19,7 @@
                                             label="Email"
                                             v-model="email"
                                         />
+                                        <span v-if="this.errors.email">{{this.errors.email[0]}}</span>
 
                                         <v-text-field
                                             v-bind:type="showPassword ? 'text' : 'password'"
@@ -28,6 +29,7 @@
                                             label="Password"
                                             v-model="password"
                                         />
+                                        <span v-if="this.errors.password">{{this.errors.password[0]}}</span>
 
                                         <v-card-actions>
                                             <v-card to="/Signup">
@@ -66,6 +68,10 @@ export default {
             showPassword: false,
             email: '',
             password: '',
+            errors: {
+                email: null,
+                password: null,
+            },
         }
     },
     methods: {
@@ -78,6 +84,13 @@ export default {
                 axios
                     .post('/api/signin', formData)
                     .then(() => this.$router.push('/'))
+                    .catch(error => {
+                        if (error.response.status === 422) {
+                            this.errors = error.response.data.errors;
+                        } else {
+                            console.log("Error", error.response);
+                        }
+                    })
             });
         }
     }

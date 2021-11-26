@@ -8,7 +8,7 @@ export default new Vuex.Store({
     state: {
         drawer: null, 
         data: [],
-        error: [],
+        error: null,
     },
     mutations: {
         set: (state, {response, url, httpMethod}) => {
@@ -44,7 +44,7 @@ export default new Vuex.Store({
                     commit('set', {response: response, url: url, httpMethod: 'get'})
                 })
                 .catch(error => {
-                    console.log(error)
+                    this.state.error = error
                 })
         },
         async post({ commit }, {url: url, formData: formData}){
@@ -55,7 +55,7 @@ export default new Vuex.Store({
                     commit('set', {response: response, url: url, httpMethod: 'post'})
                 })
                 .catch(error => {
-                    console.log(error)
+                    this.state.error = error
                 })
         },
         async put({ commit }, {url: url, formData: formData}){
@@ -66,7 +66,7 @@ export default new Vuex.Store({
                     commit('set', {response: response, url: url, httpMethod: 'put'})
                 })
                 .catch(error => {
-                    console.log(error)
+                    this.state.error = error
                 })
         },
         async delete({ commit }, {url: url}){
@@ -76,7 +76,7 @@ export default new Vuex.Store({
                     commit('set', {response: response, url: url, httpMethod: 'delete'})
                 })
                 .catch(error => {
-                    console.log(error)
+                    this.state.error = error
                 })
         },
     },

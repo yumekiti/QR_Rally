@@ -19,12 +19,14 @@
                                             label="Name"
                                             v-model="name"
                                         />
+                                        <span v-if="this.errors.name">{{this.errors.name[0]}}</span>
 
                                         <v-text-field
                                             prepend-icon="mdi-account-circle"
                                             label="Email"
                                             v-model="email"
                                         />
+                                        <span v-if="this.errors.email">{{this.errors.email[0]}}</span>
 
                                         <v-text-field
                                             v-bind:type="showPassword ? 'text' : 'password'"
@@ -34,6 +36,7 @@
                                             label="Password"
                                             v-model="password"
                                         />
+                                        <span v-if="this.errors.password">{{this.errors.password[0]}}</span>
 
                                         <v-card-actions>
                                             <v-spacer></v-spacer>
@@ -68,6 +71,11 @@ export default {
             email: '',
             password: '',
             name: '',
+            errors: {
+                email: null,
+                password: null,
+                name: null,
+            },
         }
     },
     methods: {
@@ -81,6 +89,13 @@ export default {
                 axios
                     .post('/api/signup', formData)
                     .then(() => this.$router.push('/signin'))
+                    .catch(error => {
+                        if (error.response.status === 422) {
+                            this.errors = error.response.data.errors;
+                        } else {
+                            console.log("Error", error.response);
+                        }
+                    })
             });
         }
     }
