@@ -33,6 +33,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     // stamp関連
     Route::group(['prefix' => 'stamp'], function () {
+        Route::get('/{hash}', 'StampController@get');   // スタンプゲット
+        
         Route::get('/', 'StampController@index');           // 取得
         Route::get('/{id}', 'StampController@show');        // 特定の取得
         Route::post('/', 'StampController@store');          // 作成
@@ -40,6 +42,5 @@ Route::middleware(['auth:sanctum'])->group(function () {
         Route::delete('/{id}', 'StampController@destroy');  // 削除
     });
     
-    Route::get('/stamp/{hash}', 'StampController@get');   // スタンプゲット
 
 });
