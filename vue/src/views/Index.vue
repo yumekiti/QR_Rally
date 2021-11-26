@@ -2,7 +2,7 @@
     <div>
         <Header :title="'QR_Rally'" />
         <Rule />
-        <Card :num="9" />
+        <Card :num="0" />
         <Footer />
     </div>
 </template>
