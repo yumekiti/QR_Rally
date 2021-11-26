@@ -2,8 +2,7 @@
     <div>
         <Header :title="'QR_Rally'" />
         <Rule />
-        {{this.user}}
-        <Card :num="0" />
+        <Card v-if="this.data" :num="this.data.stamp" />
         <Footer />
     </div>
 </template>
@@ -21,21 +20,24 @@ export default {
         Footer,
         Rule,
     },
-    computed: {
+    data: () => {
+        return {
+            data: null
+        }
+    },
+    methods: {
         user() {
-            return this.$store.state.data.user;
+            this.data = this.$store.state.data.user;
         },
     },
     mounted(){
         this.$store.state.data.user = null
-        this.$store.dispatch('get', {url: 'user'});
+        let promise = new Promise((resolve) => {
+            resolve(this.$store.dispatch('get', {url: 'user'}))
+        })
+        promise.then(() => {
+            this.user()
+        })
     },
-    watch: {
-        user(){
-            this.$nextTick(() => {
-                return this.user
-            })
-        }
-    }
 }
 </script>
