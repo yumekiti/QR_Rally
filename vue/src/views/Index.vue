@@ -1,7 +1,7 @@
 <template>
     <div>
         <Header :title="'QR_Rally'" />
-        <Rule />
+        <Rule :name="this.userData.name" />
         <Card v-if="this.userData" :num="this.userData.stamp" />
         <Footer />
     </div>

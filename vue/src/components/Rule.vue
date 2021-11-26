@@ -8,6 +8,7 @@
             </v-row>
             <v-row>
                 <v-col cols="12">
+                    <p>ようこそ {{this.name}}</p>
                     あーだこーだルール説明ルールルールルールルールルールルールルールルールルールルールルールルールルールルールルール
                 </v-col>
             </v-row>
@@ -17,5 +18,8 @@
 <script>
 export default {
     name: 'Rule',
+    props:{
+        name: String
+    }
 }
 </script>
