@@ -40,6 +40,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
         Route::delete('/{id}', 'StampController@destroy');  // 削除
     });
     
-    Route::get('/{hash}', 'StampController@get');   // スタンプゲット
+    Route::get('/stamp/{hash}', 'StampController@get');   // スタンプゲット
 
 });
