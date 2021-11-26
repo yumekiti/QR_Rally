@@ -36,7 +36,7 @@
                                                 </v-btn>
                                             </v-card>
                                             <v-spacer></v-spacer>
-                                            <v-btn class="info" @click="this.login">Signup</v-btn>
+                                            <v-btn class="info" @click="this.signin">Signin</v-btn>
                                         </v-card-actions>
 
                                     </v-form>
@@ -69,7 +69,7 @@ export default {
         }
     },
     methods: {
-        login(){
+        signin(){
             const formData = {
                 email: this.email,
                 password: this.password,

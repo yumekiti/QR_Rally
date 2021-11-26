@@ -6,6 +6,9 @@
             <v-btn icon @click="this.signinLink">
                 <v-icon>mdi-account</v-icon>
             </v-btn>
+            <v-btn icon @click="this.indexLink">
+                <v-icon>mdi-card-bulleted</v-icon>
+            </v-btn>
         </v-app-bar>
     </div>
 </template>
