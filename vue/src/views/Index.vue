@@ -2,6 +2,7 @@
     <div>
         <Header :title="'QR_Rally'" />
         <Rule />
+        {{this.user}}
         <Card :num="0" />
         <Footer />
     </div>
@@ -19,6 +20,22 @@ export default {
         Card,
         Footer,
         Rule,
+    },
+    computed: {
+        user() {
+            return this.$store.state.data.user;
+        },
+    },
+    mounted(){
+        this.$store.state.data.user = null
+        this.$store.dispatch('get', {url: 'user'});
+    },
+    watch: {
+        user(){
+            this.$nextTick(() => {
+                return this.user
+            })
+        }
     }
 }
 </script>
