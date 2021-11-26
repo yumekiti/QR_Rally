@@ -2,7 +2,7 @@
     <div>
         <Header :title="'QR_Rally'" />
         <Rule />
-        <Card v-if="this.data" :num="this.data.stamp" />
+        <Card v-if="this.userData" :num="this.userData.stamp" />
         <Footer />
     </div>
 </template>
@@ -22,12 +22,12 @@ export default {
     },
     data: () => {
         return {
-            data: null
+            userData: null
         }
     },
     methods: {
         user() {
-            this.data = this.$store.state.data.user;
+            this.userData = this.$store.state.data.user;
         },
     },
     mounted(){
