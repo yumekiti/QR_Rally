@@ -4,6 +4,7 @@ import Test from '@/views/Test.vue'
 import Index from '@/views/Index.vue'
 import Signin from '@/views/Signin.vue'
 import Signup from '@/views/Signup.vue'
+import Get from '@/views/Get.vue'
 
 Vue.use(VueRouter)
 
@@ -12,6 +13,11 @@ const routes = [
     path: '/',
     name: 'Index',
     component: Index
+  },
+  {
+    path: '/stamp/:hash',
+    name: 'Get',
+    component: Get
   },
   {
     path: '/signin',
