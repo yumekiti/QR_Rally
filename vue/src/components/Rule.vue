@@ -3,12 +3,11 @@
         <v-container>
             <v-row>
                 <v-col cols="12">
-                    <strong>ルール</strong>
+                    <strong>ようこそ {{this.name}} さん</strong>
                 </v-col>
             </v-row>
             <v-row>
                 <v-col cols="12">
-                    <p>ようこそ {{this.name}}</p>
                     あーだこーだルール説明ルールルールルールルールルールルールルールルールルールルールルールルールルールルールルール
                 </v-col>
             </v-row>
