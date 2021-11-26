@@ -1,5 +1,5 @@
 <template>
-    <div style="height: 300px;">
+    <div class="mt-3" style="height: 300px;">
         <v-container>
             <p>スタンプカード</p>
             <v-row>
