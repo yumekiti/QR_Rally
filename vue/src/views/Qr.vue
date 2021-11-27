@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Header :title="'QRreader'"></Header>
+        <Header :title="'QR_Reader'"></Header>
         <p class="error">{{ error }}</p>
 
         <qrcode-stream @decode="onDecode" @init="onInit" />
