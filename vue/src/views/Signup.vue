@@ -1,103 +1,21 @@
 <template>
     <div>
         <Header :title="'Signup'" />
-            <div>
-                <v-container style="display: flex; margin-top: 70px">
-                    <v-row style="align-items: center; justify-content: center;">
-                        <v-col cols="12" md="6">
-
-                            <v-card>
-                                <v-card-title>
-                                    <h1 class="display-1">Signup</h1>
-                                </v-card-title>
-                                
-                                <v-card-text>
-                                    <v-form>
-
-                                        <v-text-field
-                                            prepend-icon="mdi-account-circle"
-                                            label="Name"
-                                            v-model="name"
-                                        />
-                                        <span v-if="this.errors.name">{{this.errors.name[0]}}</span>
-
-                                        <v-text-field
-                                            prepend-icon="mdi-account-circle"
-                                            label="Email"
-                                            v-model="email"
-                                        />
-                                        <span v-if="this.errors.email">{{this.errors.email[0]}}</span>
-
-                                        <v-text-field
-                                            v-bind:type="showPassword ? 'text' : 'password'"
-                                            @click:append="showPassword = !showPassword"
-                                            prepend-icon="mdi-lock" 
-                                            v-bind:append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-                                            label="Password"
-                                            v-model="password"
-                                        />
-                                        <span v-if="this.errors.password">{{this.errors.password[0]}}</span>
-
-                                        <v-card-actions>
-                                            <v-spacer></v-spacer>
-                                            <v-btn class="info" @click="this.signup">Signup</v-btn>
-                                        </v-card-actions>
-
-                                    </v-form>
-                                </v-card-text>
-                            </v-card>
-
-                        </v-col>
-                    </v-row>
-                </v-container>
-            </div>
+        <SignForm :signupCheck="true" />
         <Footer />
     </div>
 </template>
 <script>
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
-import axios from 'axios'
+import SignForm from '@/components/SignForm.vue'
 
 export default {
     name: 'Signup',
     components: {
         Header,
         Footer,
+        SignForm,
     },
-    data: () => {
-        return {
-            showPassword: false,
-            email: '',
-            password: '',
-            name: '',
-            errors: {
-                email: null,
-                password: null,
-                name: null,
-            },
-        }
-    },
-    methods: {
-        signup(){
-            const formData = {
-                name: this.name,
-                email: this.email,
-                password: this.password,
-            }
-            axios.get('/api/csrf-cookie').then(() => {
-                axios
-                    .post('/api/signup', formData)
-                    .then(() => this.$router.push('/signin'))
-                    .catch(error => {
-                        if (error.response.status === 422) {
-                            this.errors = error.response.data.errors;
-                        } else {
-                            console.log("Error", error.response);
-                        }
-                    })
-            });
-        }
-    }
 }
 </script>
