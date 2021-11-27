@@ -5,8 +5,11 @@
 export default {
     name: 'Get',
     mounted() {
-        this.$store.dispatch('get', {url: 'stamp/' + this.$route.params.hash})
-        this.$router.push('/')
+        new Promise((resolve) => {
+            resolve(this.$store.dispatch('get', {url: 'stamp/' + this.$route.params.hash}))
+        }).then(() => {
+            this.$router.push('/')
+        })
     },
 }
 </script>

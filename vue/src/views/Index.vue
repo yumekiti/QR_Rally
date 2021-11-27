@@ -4,6 +4,16 @@
         <div v-if="this.user">
             <Rule :name="this.user.name" />
             <Card :num="this.user.stamp" />
+            <v-btn
+                elevation="2"
+                fab
+                absolute
+                top
+                right
+                style="position: relative"
+            >
+                <v-icon>mdi-plus</v-icon>
+            </v-btn>
         </div>
         <Footer />
     </div>

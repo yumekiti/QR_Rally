@@ -6,6 +6,7 @@ import Signin from '@/views/Signin.vue'
 import Signup from '@/views/Signup.vue'
 import Get from '@/views/Get.vue'
 import Admin from '@/views/Admin.vue'
+import Qr from '@/views/Qr.vue'
 
 Vue.use(VueRouter)
 
@@ -24,6 +25,11 @@ const routes = [
     path: '/signin',
     name: 'Signin',
     component: Signin
+  },
+  {
+    path: '/qr',
+    name: 'Qr',
+    component: Qr
   },
   {
     path: '/signup',
