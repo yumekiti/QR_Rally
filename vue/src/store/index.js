@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import router from '../router'
 
 Vue.use(Vuex)
 
@@ -44,6 +45,9 @@ export default new Vuex.Store({
                     commit('set', {response: response, url: url, httpMethod: 'get'})
                 })
                 .catch(error => {
+                    if (error.response.status === 401) {
+                        router.push('/signin')
+                    }
                     this.state.error = error
                 })
         },
@@ -55,6 +59,9 @@ export default new Vuex.Store({
                     commit('set', {response: response, url: url, httpMethod: 'post'})
                 })
                 .catch(error => {
+                    if (error.response.status === 401) {
+                        router.push('/signin')
+                    }
                     this.state.error = error
                 })
         },
@@ -66,6 +73,9 @@ export default new Vuex.Store({
                     commit('set', {response: response, url: url, httpMethod: 'put'})
                 })
                 .catch(error => {
+                    if (error.response.status === 401) {
+                        router.push('/signin')
+                    }
                     this.state.error = error
                 })
         },
@@ -76,6 +86,9 @@ export default new Vuex.Store({
                     commit('set', {response: response, url: url, httpMethod: 'delete'})
                 })
                 .catch(error => {
+                    if (error.response.status === 401) {
+                        router.push('/signin')
+                    }
                     this.state.error = error
                 })
         },
