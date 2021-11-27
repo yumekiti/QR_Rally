@@ -32,6 +32,7 @@
     "vue-template-compiler": "^2.6.11",
     "vuetify-loader": "^1.7.0",
     "glob-parent": ">=5.1.2",
-    "json-schema": ">=0.4.0"
+    "json-schema": ">=0.4.0",  
+    "axios": ">=0.21.2"
   }
 }
