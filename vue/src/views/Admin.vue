@@ -22,6 +22,9 @@ export default {
             resolve(this.$store.dispatch('get', {url: 'user'}))
         }).then(() => {
             this.userGet()
+            if(this.user.id != 1){
+                this.$router.push('/')
+            }
         })
     },
 }
