@@ -40,7 +40,9 @@ export default {
     },
     created() {
         for(let i = 0; i < this.num; i++){
-            this.stamp[i].icon = 'mdi-check-circle'
+            if(i < 9){
+                this.stamp[i].icon = 'mdi-check-circle'
+            }
         }
     },
 }
