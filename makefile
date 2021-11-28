@@ -78,3 +78,7 @@ docker-clean:
 	docker volume prune -f ; \
 	docker network prune -f ; \
 	docker system prune -f
+
+.PHONY: ssl
+ssl:
+	bash ./docker/nginx/ssl/ssl.sh
