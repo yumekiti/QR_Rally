@@ -39,7 +39,11 @@
                         :headers="stampHeaders"
                         :items="stamp"
                         :search="stampSearch"
-                    ></v-data-table>
+                    >
+                        <template #[`item.qr`]="{ item }">
+                            <v-btn @click="$router.push('/admin/qr/' + item.hash)" x-small>Generate</v-btn>
+                        </template>
+                    </v-data-table>
                 </v-col>
             </v-row>
         </v-container>
@@ -67,6 +71,7 @@ export default {
                     value: 'id',
                 },
                 { text: 'name', value: 'name' },
+                { text: 'QR', value: 'qr' },
                 { text: 'created_at', value: 'created_at' },
                 { text: 'updated_at', value: 'updated_at' },
                 { text: 'hash', value: 'hash' },

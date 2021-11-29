@@ -8,10 +8,11 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "json-schema": ">=0.4.0",
-    "glob-parent": ">=5.1.2",
+    "@chenfengyuan/vue-qrcode": "^1.0.2",
     "axios": "^0.24.0",
     "core-js": "^3.6.5",
+    "glob-parent": ">=5.1.2",
+    "json-schema": ">=0.4.0",
     "vue": "^2.6.11",
     "vue-qrcode-reader": "^3.0.6",
     "vue-router": "^3.2.0",
