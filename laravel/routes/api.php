@@ -30,6 +30,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
         Route::put('/', 'UserController@update');       // 編集
         Route::delete('/', 'UserController@destroy');   // 削除
     });
+    Route::get('/users', 'UserController@all');        // 取得
 
     // stamp関連
     Route::group(['prefix' => 'stamp'], function () {

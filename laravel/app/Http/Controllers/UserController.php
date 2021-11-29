@@ -96,4 +96,13 @@ class UserController extends Controller
         // 認証できなかったら以下を返す
         return abort(401, 'メールアドレスまたはパスワードが違います。');
     }
+
+    public function all()
+    {
+        //
+        if(Auth::user()->id == 1){
+            return User::all();
+        }
+        return abort(403);
+    }
 }

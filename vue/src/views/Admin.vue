@@ -4,27 +4,41 @@
         <v-container>
             <v-row cols="12">
                 <v-col cols="12">
-                    <v-btn block color="primary">
+                    <v-btn @click="showUsers = !showUsers" block color="primary">
                         UserList
                     </v-btn>
                 </v-col>
-                <v-col cols="12">
-                    <v-btn @click="showStamp = !showStamp" block color="primary">
-                        StampList
-                    </v-btn>
-                </v-col>
-                <v-col v-if="this.showStamp" cols="12">
+                <v-col v-show="this.showUsers" cols="12">
                     <v-text-field
-                        v-model="search"
+                        v-model="usersSearch"
                         append-icon="mdi-magnify"
                         label="Search"
                         single-line
                         hide-details
                     ></v-text-field>
                     <v-data-table
-                        :headers="headers"
+                        :headers="usersHeaders"
+                        :items="users"
+                        :search="usersSearch"
+                    ></v-data-table>
+                </v-col>
+                <v-col cols="12">
+                    <v-btn @click="showStamp = !showStamp" block color="primary">
+                        StampList
+                    </v-btn>
+                </v-col>
+                <v-col v-show="this.showStamp" cols="12">
+                    <v-text-field
+                        v-model="stampSearch"
+                        append-icon="mdi-magnify"
+                        label="Search"
+                        single-line
+                        hide-details
+                    ></v-text-field>
+                    <v-data-table
+                        :headers="stampHeaders"
                         :items="stamp"
-                        :search="search"
+                        :search="stampSearch"
                     ></v-data-table>
                 </v-col>
                 <v-col cols="12">
@@ -48,8 +62,23 @@ export default {
         return {
             user: null,
             showStamp: false,
-            search: '',
-            headers: [
+            showUsers: false,
+            usersSearch: '',
+            stampSearch: '',
+            usersHeaders: [
+                {
+                    text: 'id',
+                    align: 'start',
+                    value: 'id',
+                },
+                { text: 'name', value: 'name' },
+                { text: 'stamp', value: 'stamp' },
+                { text: 'email', value: 'email' },
+                { text: 'email_verified_at', value: 'email_verified_at' },
+                { text: 'created_at', value: 'created_at' },
+                { text: 'updated_at', value: 'updated_at' },
+            ],
+            stampHeaders: [
                 {
                     text: 'id',
                     align: 'start',
@@ -61,11 +90,15 @@ export default {
                 { text: 'hash', value: 'hash' },
             ],
             stamp: [],
+            users: [],
         }
     },
     methods: {
         userGet() {
             this.user = this.$store.state.data.user;
+        },
+        usersGet() {
+            this.users = this.$store.state.data.users;
         },
         stampGet() {
             this.stamp = this.$store.state.data.stamp
@@ -87,6 +120,11 @@ export default {
             resolve(this.$store.dispatch('get', {url: 'stamp'}))
         }).then(() => {
             this.stampGet()
+        })
+        new Promise((resolve) => {
+            resolve(this.$store.dispatch('get', {url: 'users'}))
+        }).then(() => {
+            this.usersGet()
         })
     },
 }
