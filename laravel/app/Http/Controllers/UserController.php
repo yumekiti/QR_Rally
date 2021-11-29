@@ -112,12 +112,20 @@ class UserController extends Controller
     {
         $guests = User::where('name', 'like', '%guest%')->get()->last();
 
+        // _より左の数字を足して_gestを繋げる
         $newGuest = ((int)mb_strstr($guests->name, '_', true) + 1) . "_guest";
 
-        return User::create([
+        $email = $newGuest . "@guest.com";
+        $password = Str::random(30);
+
+        User::create([
             'name' => $newGuest,
-            'email' => $newGuest . "@guest.com",
-            'password' => Hash::make(Str::random(30)),
+            'email' => $email,
+            'password' => Hash::make($password),
         ]);
+
+        if(Auth::attempt(['email' => $email, 'password' => $password])){
+            return Auth::user();
+        }
     }
 }
