@@ -41,11 +41,6 @@
                         :search="stampSearch"
                     ></v-data-table>
                 </v-col>
-                <v-col cols="12">
-                    <v-btn block color="primary">
-                        AchievementList
-                    </v-btn>
-                </v-col>
             </v-row>
         </v-container>
     </div>
@@ -63,8 +58,19 @@ export default {
             user: null,
             showStamp: false,
             showUsers: false,
-            usersSearch: '',
             stampSearch: '',
+            usersSearch: '',
+            stampHeaders: [
+                {
+                    text: 'id',
+                    align: 'start',
+                    value: 'id',
+                },
+                { text: 'name', value: 'name' },
+                { text: 'created_at', value: 'created_at' },
+                { text: 'updated_at', value: 'updated_at' },
+                { text: 'hash', value: 'hash' },
+            ],
             usersHeaders: [
                 {
                     text: 'id',
@@ -78,17 +84,6 @@ export default {
                 { text: 'created_at', value: 'created_at' },
                 { text: 'updated_at', value: 'updated_at' },
             ],
-            stampHeaders: [
-                {
-                    text: 'id',
-                    align: 'start',
-                    value: 'id',
-                },
-                { text: 'name', value: 'name' },
-                { text: 'created_at', value: 'created_at' },
-                { text: 'updated_at', value: 'updated_at' },
-                { text: 'hash', value: 'hash' },
-            ],
             stamp: [],
             users: [],
         }
@@ -97,12 +92,12 @@ export default {
         userGet() {
             this.user = this.$store.state.data.user;
         },
+        stampGet() {
+            this.stamp = this.$store.state.data.stamp;
+        },
         usersGet() {
             this.users = this.$store.state.data.users;
         },
-        stampGet() {
-            this.stamp = this.$store.state.data.stamp
-        }
     },
     mounted(){
         this.$store.state.data.user = null
