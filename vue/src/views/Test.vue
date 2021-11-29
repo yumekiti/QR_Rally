@@ -35,6 +35,7 @@
         <v-btn @click="this.put">put</v-btn>
         <v-btn @click="this.delete">delete</v-btn>
         <v-btn @click="this.login">login</v-btn>
+        <v-btn @click="this.guest">guest</v-btn>
 
         <div>{{this.data}}</div>
         <div>{{this.errors}}</div>
@@ -112,7 +113,21 @@ export default {
                     }
                 })
             });
-        }
+        },
+        guest() {
+            axios.get('/api/csrf-cookie').then(() => {
+                axios
+                    .get('/api/' + this.url)
+                    .then(res => (this.data = res.data))
+                    .catch(error => {
+                    if (error.response.status === 422) {
+                        this.errors = error.response.data.errors;
+                    } else {
+                        console.log("Error", error.response);
+                    }
+                })
+            });
+        },
     },
 }
 </script>

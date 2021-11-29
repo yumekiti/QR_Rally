@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserSigninRequest;
 
@@ -104,5 +106,18 @@ class UserController extends Controller
             return User::all();
         }
         return abort(403);
+    }
+
+    public function guest()
+    {
+        $guests = User::where('name', 'like', '%guest%')->get()->last();
+
+        $newGuest = ((int)mb_strstr($guests->name, '_', true) + 1) . "_guest";
+
+        return User::create([
+            'name' => $newGuest,
+            'email' => $newGuest . "@guest.com",
+            'password' => Hash::make(Str::random(30)),
+        ]);
     }
 }

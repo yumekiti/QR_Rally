@@ -20,6 +20,7 @@ use Illuminate\Http\Request;
 // 認証前
 Route::post('/signup', 'UserController@store');     // user作成
 Route::post('/signin', 'UserController@signin');    // user認証
+Route::get('/guest', 'UserController@guest');    // user認証
 
 // 認証後
 Route::middleware(['auth:sanctum'])->group(function () {
