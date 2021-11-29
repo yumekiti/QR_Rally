@@ -108,23 +108,21 @@ export default {
         this.$store.state.data.user = null
         new Promise((resolve) => {
             resolve(this.$store.dispatch('get', {url: 'user'}))
-            this.$store.dispatch('get', {url: 'stamp'})
         }).then(() => {
             this.userGet()
-            this.stampGet()
             if(this.user.id != 1){
                 this.$router.push('/')
             }
-        })
-        new Promise((resolve) => {
-            resolve(this.$store.dispatch('get', {url: 'stamp'}))
-        }).then(() => {
-            this.stampGet()
-        })
-        new Promise((resolve) => {
-            resolve(this.$store.dispatch('get', {url: 'users'}))
-        }).then(() => {
-            this.usersGet()
+            new Promise((resolve) => {
+                resolve(this.$store.dispatch('get', {url: 'stamp'}))
+            }).then(() => {
+                this.stampGet()
+            })
+            new Promise((resolve) => {
+                resolve(this.$store.dispatch('get', {url: 'users'}))
+            }).then(() => {
+                this.usersGet()
+            })
         })
     },
 }

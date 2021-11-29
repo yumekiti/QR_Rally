@@ -1,6 +1,8 @@
 <template>
     <div>
-        <vue-qrcode v-if="targetText" :value="targetText" :options="option" tag="img"></vue-qrcode>
+        <v-container class="d-flex justify-center align-center">
+            <vue-qrcode v-if="targetText" :value="targetText" :options="option" tag="img"></vue-qrcode>
+        </v-container>
     </div>
 </template>
 
