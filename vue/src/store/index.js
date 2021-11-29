@@ -5,11 +5,20 @@ import router from '../router'
 
 Vue.use(Vuex)
 
+const authCheck = (guest, error) => {
+    if(!guest){
+        if (error.response.status === 401) {
+            router.push('/signin')
+        }
+    }
+}
+
 export default new Vuex.Store({
     state: {
         drawer: null, 
         data: [],
         error: null,
+        guest: false,
     },
     mutations: {
         set: (state, {response, url, httpMethod}) => {
@@ -45,9 +54,7 @@ export default new Vuex.Store({
                     commit('set', {response: response, url: url, httpMethod: 'get'})
                 })
                 .catch(error => {
-                    if (error.response.status === 401) {
-                        router.push('/signin')
-                    }
+                    authCheck(this.guest, error)
                     this.state.error = error
                 })
         },
@@ -59,9 +66,7 @@ export default new Vuex.Store({
                     commit('set', {response: response, url: url, httpMethod: 'post'})
                 })
                 .catch(error => {
-                    if (error.response.status === 401) {
-                        router.push('/signin')
-                    }
+                    authCheck(this.guest, error)
                     this.state.error = error
                 })
         },
@@ -73,9 +78,7 @@ export default new Vuex.Store({
                     commit('set', {response: response, url: url, httpMethod: 'put'})
                 })
                 .catch(error => {
-                    if (error.response.status === 401) {
-                        router.push('/signin')
-                    }
+                    authCheck(this.guest, error)
                     this.state.error = error
                 })
         },
@@ -86,9 +89,7 @@ export default new Vuex.Store({
                     commit('set', {response: response, url: url, httpMethod: 'delete'})
                 })
                 .catch(error => {
-                    if (error.response.status === 401) {
-                        router.push('/signin')
-                    }
+                    authCheck(this.guest, error)
                     this.state.error = error
                 })
         },
