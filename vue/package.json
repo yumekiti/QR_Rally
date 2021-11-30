@@ -12,6 +12,7 @@
     "axios": "^0.24.0",
     "core-js": "^3.6.5",
     "glob-parent": ">=5.1.2",
+    "js-cookie": "^3.0.1",
     "json-schema": ">=0.4.0",
     "vue": "^2.6.11",
     "vue-qrcode-reader": "^3.0.6",
