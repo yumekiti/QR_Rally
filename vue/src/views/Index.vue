@@ -7,7 +7,7 @@
         />
         <Card
             :title="this.$store.state.String.jp.card.title"
-            :num="this.$store.state.done"
+            :num="this.$store.state.Stamp.done"
         />
         <Fab></Fab>
         <Footer />

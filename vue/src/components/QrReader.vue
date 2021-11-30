@@ -18,14 +18,14 @@ export default {
     data () {
         return {
             result: '',
-            error: ''
+            error: '',
         }
     },
 
     methods: {
         onDecode (result) {
             this.result = result
-            this.$router.push(this.result)
+            window.location.href = this.result;
         },
 
         async onInit (promise) {

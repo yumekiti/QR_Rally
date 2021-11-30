@@ -3,24 +3,26 @@ import Vuex from 'vuex'
 
 // modules
 import String from '@/store/modules/string.js'
-import Hash from '@/store/modules/hash.js'
+import Stamp from '@/store/modules/stamp.js'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        // スタンプのゲットした数
-        done: 0,
     },
     mutations: {
         getStamp(modules, hash){
-            console.log(modules.Hash.find(item => item.hash === hash));
+            const getHash = modules.Stamp.hash.find(item => item.hash === hash)
+            if(getHash && Boolean(!getHash.state)){
+                window.sessionStorage.setItem(['stamp_' + getHash.name],[1])
+                window.sessionStorage.setItem(['done'],[Number(this.state.Stamp.done)+1]);
+            }
         }
     },
     actions: {
     },
     modules: {
         String, // 文字系
-        Hash,   // スタンプ用ハッシュ
+        Stamp,  // スタンプ用ハッシュ
     }
 })
