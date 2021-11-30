@@ -6,7 +6,17 @@ export default {
             {
                 name: 'hoge',
                 state: window.sessionStorage.getItem(['stamp_hoge']),
-                hash: 'hash'
+                hash: 'hash1'
+            },
+            {
+                name: 'piyo',
+                state: window.sessionStorage.getItem(['stamp_piyo']),
+                hash: 'hash2'
+            },
+            {
+                name: 'fuga',
+                state: window.sessionStorage.getItem(['stamp_fuga']),
+                hash: 'hash3'
             },
         ],
     },
