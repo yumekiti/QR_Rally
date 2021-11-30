@@ -39,13 +39,12 @@
                                 <span v-if="this.errors.password">{{this.errors.password[0]}}</span>
 
                                 <v-card-actions v-show="!this.signupCheck">
-                                    <v-btn @click="this.guest">Guest</v-btn>
-                                    <v-spacer></v-spacer>
                                     <router-link to="/Signup">
                                         <v-btn class="mr-3" style="font-size: 10px;">
                                             Signup
                                         </v-btn>
                                     </router-link>
+                                    <v-spacer></v-spacer>
                                     <v-btn class="info" @click="this.signin">Signin</v-btn>
                                 </v-card-actions>
                                     

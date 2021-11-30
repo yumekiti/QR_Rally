@@ -5,11 +5,20 @@ import router from '../router'
 
 Vue.use(Vuex)
 
-const authCheck = (guest, error) => {
-    if(!guest){
-        if (error.response.status === 401) {
-            router.push('/signin')
-        }
+const guest = () => {
+    axios.get('/api/csrf-cookie').then(() => {
+        axios
+            .get('/api/guest')
+            .then(() => router.go({path: router.currentRoute.path, force: true}))
+            .catch(error => {
+                console.log(error);
+            })
+    })
+}
+
+const authCheck = (error) => {
+    if (error.response.status === 401) {
+        guest()
     }
 }
 
@@ -18,7 +27,6 @@ export default new Vuex.Store({
         drawer: null, 
         data: [],
         error: null,
-        guest: false,
     },
     mutations: {
         set: (state, {response, url, httpMethod}) => {
@@ -54,7 +62,7 @@ export default new Vuex.Store({
                     commit('set', {response: response, url: url, httpMethod: 'get'})
                 })
                 .catch(error => {
-                    authCheck(this.guest, error)
+                    authCheck(error)
                     this.state.error = error
                 })
         },
@@ -66,7 +74,7 @@ export default new Vuex.Store({
                     commit('set', {response: response, url: url, httpMethod: 'post'})
                 })
                 .catch(error => {
-                    authCheck(this.guest, error)
+                    authCheck(error)
                     this.state.error = error
                 })
         },
@@ -78,7 +86,7 @@ export default new Vuex.Store({
                     commit('set', {response: response, url: url, httpMethod: 'put'})
                 })
                 .catch(error => {
-                    authCheck(this.guest, error)
+                    authCheck(error)
                     this.state.error = error
                 })
         },
@@ -89,7 +97,7 @@ export default new Vuex.Store({
                     commit('set', {response: response, url: url, httpMethod: 'delete'})
                 })
                 .catch(error => {
-                    authCheck(this.guest, error)
+                    authCheck(error)
                     this.state.error = error
                 })
         },
