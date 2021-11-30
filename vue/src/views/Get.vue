@@ -6,7 +6,7 @@ export default {
     name: 'Get',
     mounted() {
         new Promise((resolve) => {
-            resolve(this.$store.dispatch('get', {url: 'stamp/' + this.$route.params.hash}))
+            resolve(this.$store.commit('getStamp', this.$route.params.hash))
         }).then(() => {
             this.$router.push('/')
         })
