@@ -9,27 +9,8 @@ services:
             - 8080:80
         volumes:
             - ./nginx/:/etc/nginx/conf.d/
-            - ../laravel/:/var/www/
+            # - ./nginx/conf.d/:/etc/nginx/conf.d/
         working_dir: /var/www/
-  
-    php:
-        build: ./php/
-        user: $user
-        container_name: php
-        volumes:
-            - ../laravel/:/var/www/
-    
-    db:
-        image: mysql:5.7
-        container_name: db
-        environment:
-            MYSQL_DATABASE: database
-            MYSQL_USER: user
-            MYSQL_PASSWORD: password
-            MYSQL_ROOT_PASSWORD: root
-            TZ: Asia/Tokyo
-        volumes:
-            - ./mysql/my.cnf:/etc/mysql/my.cnf
 
     vue:
         image: node:14.17.0
