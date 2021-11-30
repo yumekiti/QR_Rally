@@ -9,9 +9,13 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
+        // スタンプのゲットした数
         done: 0,
     },
     mutations: {
+        getStamp(modules, hash){
+            console.log(modules.Hash.find(item => item.hash === hash));
+        }
     },
     actions: {
     },

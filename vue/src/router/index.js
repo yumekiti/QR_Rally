@@ -3,7 +3,6 @@ import VueRouter from 'vue-router'
 import Test from '@/views/Test.vue'
 import Index from '@/views/Index.vue'
 import Get from '@/views/Get.vue'
-import Admin from '@/views/Admin.vue'
 import Qr from '@/views/Qr.vue'
 import QrGenerate from '@/views/QrGenerate.vue'
 
@@ -26,12 +25,7 @@ const routes = [
     component: Qr
   },
   {
-    path: '/admin',
-    name: 'Admin',
-    component: Admin
-  },
-  {
-    path: '/admin/qr/:hash',
+    path: '/qr/:hash',
     name: 'QrGenerate',
     component: QrGenerate
   },
