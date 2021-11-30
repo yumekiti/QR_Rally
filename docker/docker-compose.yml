@@ -3,11 +3,12 @@ version: "3"
 services:
 
     nginx:
-        build: ./nginx/ssl/
+        image: nginx:alpine
         container_name: nginx
         ports:
             - 8080:80
         volumes:
+            - ./nginx/:/etc/nginx/conf.d/
             - ../laravel/:/var/www/
         working_dir: /var/www/
   
