@@ -3,12 +3,10 @@ version: "3"
 services:
 
     nginx:
-        image: nginx:alpine
+        build: ./nginx/ssl/
         container_name: nginx
         ports:
             - 8080:80
-        volumes:
-            - ./nginx/:/etc/nginx/conf.d/
         working_dir: /var/www/
 
     vue:
