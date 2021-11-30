@@ -3,12 +3,12 @@
         <v-container>
             <v-row>
                 <v-col cols="12">
-                    <strong>ようこそ {{this.name}} さん</strong>
+                    <strong>{{this.$store.state.String.jp.rule.title}}</strong>
                 </v-col>
             </v-row>
             <v-row>
                 <v-col cols="12">
-                    あーだこーだルール説明ルールルールルールルールルールルールルールルールルールルールルールルールルールルールルール
+                    {{this.$store.state.String.jp.rule.detail}}
                 </v-col>
             </v-row>
         </v-container>
@@ -17,8 +17,5 @@
 <script>
 export default {
     name: 'Rule',
-    props:{
-        name: String
-    }
 }
 </script>

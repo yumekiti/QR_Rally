@@ -1,11 +1,9 @@
 <template>
     <div>
         <Header :title="'QR_Rally'" />
-        <div v-if="this.user">
-            <Rule :name="this.user.name" />
-            <Card :num="this.user.stamp" />
-            <Fab></Fab>
-        </div>
+        <Rule />
+        <Card></Card>
+        <Fab></Fab>
         <Footer />
     </div>
 </template>
@@ -24,24 +22,6 @@ export default {
         Footer,
         Rule,
         Fab,
-    },
-    data: () => {
-        return {
-            user: null
-        }
-    },
-    methods: {
-        userGet() {
-            this.user = this.$store.state.data.user;
-        },
-    },
-    mounted(){
-        this.$store.state.data.user = null
-        new Promise((resolve) => {
-            resolve(this.$store.dispatch('get', {url: 'user'}))
-        }).then(() => {
-            this.userGet()
-        })
     },
 }
 </script>

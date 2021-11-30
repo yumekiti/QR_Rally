@@ -1,7 +1,12 @@
 export default {
     namespaced:true,
     state: {
-        jp: {},
+        jp: {
+            rule: {
+                title: 'ルール説明',
+                detail: 'rule ルールルールルールルール',
+            }
+        },
         en: {},
     },
 }
