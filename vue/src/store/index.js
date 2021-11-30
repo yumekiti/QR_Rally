@@ -15,7 +15,8 @@ export default new Vuex.Store({
             const getHash = modules.Stamp.hash.find(item => item.hash === hash)
             if(getHash && Boolean(!getHash.state)){
                 window.sessionStorage.setItem(['stamp_' + getHash.name],[1])
-                this.state.Stamp.done = window.sessionStorage.setItem(['done'],[Number(this.state.Stamp.done)+1]);
+                window.sessionStorage.setItem(['done'],[Number(this.state.Stamp.done)+1]);
+                this.state.Stamp.done = window.sessionStorage.getItem(['done'])
             }
         }
     },
