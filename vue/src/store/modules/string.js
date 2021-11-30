@@ -5,7 +5,10 @@ export default {
             rule: {
                 title: 'ルール説明',
                 detail: 'rule ルールルールルールルール',
-            }
+            },
+            card: {
+                title: 'スタンプカード',
+            },
         },
         en: {},
     },

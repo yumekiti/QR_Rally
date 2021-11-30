@@ -1,7 +1,7 @@
 <template>
     <div class="mt-3" style="height: 300px;">
         <v-container>
-            <p>スタンプカード</p>
+            <p>{{this.title}}</p>
             <v-row>
                 <v-col
                     v-for="(n, index) in stamp.length"
@@ -36,7 +36,8 @@ export default {
         }
     },
     props: {
-        num: Number
+        title: String,
+        num: Number,
     },
     created() {
         for(let i = 0; i < this.num; i++){

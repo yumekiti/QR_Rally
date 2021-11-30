@@ -1,8 +1,14 @@
 <template>
     <div>
         <Header :title="'QR_Rally'" />
-        <Rule />
-        <Card></Card>
+        <Rule
+            :title="this.$store.state.String.jp.rule.title"
+            :detail="this.$store.state.String.jp.rule.detail"
+        />
+        <Card
+            :title="this.$store.state.String.jp.card.title"
+            :num="this.$store.state.done"
+        />
         <Fab></Fab>
         <Footer />
     </div>
