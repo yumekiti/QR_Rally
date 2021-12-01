@@ -1,0 +1,12 @@
+{
+    "rule": {
+        "title": "Rule",
+        "detail": "Please scan the QR code."
+    },
+    "card": {
+        "title": "stamp card"
+    },
+    "footer": {
+        "title": "2021 Student Council  — Earth Festival"
+    }
+}

@@ -3,9 +3,31 @@
         <v-app-bar app>
             <v-toolbar-title @click="this.indexLink">{{this.title}}</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn icon @click="this.language">
-                <v-icon>mdi-translate</v-icon>
-            </v-btn>
+            <div class="text-center">
+                <v-menu offset-y>
+                    <template #activator="{ on, attrs }">
+                        <v-btn
+                            icon
+                            v-bind="attrs"
+                            v-on="on"
+                        >
+                            <v-icon>mdi-translate</v-icon>
+                        </v-btn>
+                    </template>
+                    <v-list>
+                        <v-list-item
+                            v-for="(item, index) in this.$store.state.Language"
+                            :key="index"
+                            link
+                            @click="language(item.value)"
+                        >
+                            <v-list-item-title>
+                                {{ item.lang }}
+                            </v-list-item-title>
+                        </v-list-item>
+                    </v-list>
+                </v-menu>
+            </div>
             <v-btn icon @click="this.indexLink">
                 <v-icon>mdi-card-bulleted</v-icon>
             </v-btn>
@@ -26,11 +48,13 @@ export default {
                 this.$router.push('/')
             }
         },
-        language(){
-            Cookies.set('en', Number(Boolean(!Number(this.$store.state.String.enStatus))))
-            this.$store.state.String.enStatus = Cookies.get('en')
-            this.$router.go({path: this.$router.currentRoute.path, force: true})
+        language(value){
+            Cookies.set('language', value)
+            this.$i18n.locale = value;
         }
-    }
+    },
+    mounted() {
+        this.$i18n.locale = Cookies.get('language')
+    },
 }
 </script>
