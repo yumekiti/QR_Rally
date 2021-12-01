@@ -11,29 +11,47 @@ const routes = [
   {
     path: '/',
     name: 'Index',
-    component: Index
+    component: Index,
+    meta: {
+      title: 'QR_Rally',
+      desc: 'メイン画面でスタンプカードなどを表示している'
+    }
   },
   {
     path: '/stamp/:hash',
     name: 'Get',
-    component: Get
+    component: Get,
   },
   {
     path: '/qr',
     name: 'Qr',
-    component: Qr
+    component: Qr,
+    meta: {
+      title: 'QR_reader',
+      desc: 'QRコード読み取る'
+    }
   },
   {
     path: '/qr/:hash',
     name: 'QrGenerate',
-    component: QrGenerate
+    component: QrGenerate,
+    meta: {
+      title: 'generate',
+      desc: 'QRコード生成する'
+    }
   },
 ]
+
+const DEFAULT_TITLE = 'QR_Rally'
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.afterEach((to) => {
+  document.title = to.meta.title || DEFAULT_TITLE
 })
 
 export default router
