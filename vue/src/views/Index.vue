@@ -2,16 +2,16 @@
     <div>
         <Header :title="'QR_Rally'" />
         <Rule
-            :title="this.$store.state.String.jp.rule.title"
-            :detail="this.$store.state.String.jp.rule.detail"
+            :title="this.language.rule.title"
+            :detail="this.language.rule.detail"
         />
         <Card
-            :title="this.$store.state.String.jp.card.title"
+            :title="this.language.card.title"
             :num="Number(this.$store.state.Stamp.done)"
         />
         <Fab></Fab>
         <Footer
-            :title="this.$store.state.String.jp.footer.title"
+            :title="this.language.footer.title"
         />
     </div>
 </template>
@@ -30,6 +30,25 @@ export default {
         Footer,
         Rule,
         Fab,
+    },
+    data: () =>{
+        return {
+            language: {
+                rule: {
+                    title: '',
+                    detail: '',
+                },
+                card: {
+                    title: '',
+                },
+                footer: {
+                    title: '',
+                },
+            },
+        }
+    },
+    mounted() {
+        Number(this.$store.state.String.enStatus) ? this.language = this.$store.state.String.en : this.language = this.$store.state.String.jp
     },
 }
 </script>

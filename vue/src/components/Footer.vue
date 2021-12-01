@@ -4,7 +4,7 @@
             class="text-center"
             cols="12"
         >
-        {{this.title}}
+            {{this.title}}
         </v-col>
     </v-footer>
 </template>

@@ -13,10 +13,20 @@ export default {
             },
             footer: {
                 title: '2021学生会 — 地球祭',
-                language: 'Language setting',
             },
         },
         enStatus: Cookies.get('en'),
-        en: {},
+        en: {
+            rule: {
+                title: 'ruru',
+                detail: 'qr code yomtoro',
+            },
+            card: {
+                title: 'stamp card',
+            },
+            footer: {
+                title: '2021gakuseika — tikiyusai',
+            },
+        },
     },
 }

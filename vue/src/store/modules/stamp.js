@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 export default {
     namespaced:true,
     mutations: {
-        getStamp(modules, hash){
+        getStamp(state, hash){
             const getHash = this.state.Stamp.hash.find(item => item.hash === hash)
             if(getHash && Boolean(!getHash.status)){
                 Cookies.set('stamp_' + getHash.name, 1)
