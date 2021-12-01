@@ -1,6 +1,10 @@
 <template>
     <div>
-        <Header :title="'QR_Rally'" />
+        <Header
+            :title="'QR_Rally'"
+            :card="false"
+            :lang="true"
+        />
         <Rule
             :title="$t('rule.title')"
             :detail="$t('rule.detail')"

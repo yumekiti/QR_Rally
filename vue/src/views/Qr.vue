@@ -1,6 +1,10 @@
 <template>
     <div>
-        <Header :title="'QR_Reader'"></Header>
+        <Header
+            :title="'QR_Reader'"
+            :card="true"
+            :lang="false"
+        ></Header>
         <QrReader></QrReader>
     </div>
 </template>
