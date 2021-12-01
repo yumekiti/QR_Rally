@@ -10,7 +10,9 @@
             :num="Number(this.$store.state.Stamp.done)"
         />
         <Fab></Fab>
-        <Footer />
+        <Footer
+            :title="this.$store.state.String.jp.footer.title"
+        />
     </div>
 </template>
 <script>

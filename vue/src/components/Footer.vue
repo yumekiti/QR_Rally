@@ -4,12 +4,15 @@
             class="text-center"
             cols="12"
         >
-        2021学生会 — 地球祭
+        {{this.title}}
         </v-col>
     </v-footer>
 </template>
 <script>
 export default {
     name: 'Footer',
+    props:{
+        title: String,
+    }
 }
 </script>
