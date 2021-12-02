@@ -7,6 +7,7 @@
                 <v-menu offset-y>
                     <template #activator="{ on, attrs }">
                         <v-btn
+                            elevation="2"
                             icon
                             v-bind="attrs"
                             v-on="on"

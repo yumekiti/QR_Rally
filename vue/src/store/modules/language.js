@@ -6,7 +6,7 @@ export default {
             value: 'jp',
         },
         {
-            lang: '英語',
+            lang: 'English',
             value: 'en',
         },
     ],

@@ -42,7 +42,7 @@ export default {
     created() {
         for(let i = 0; i < this.num; i++){
             if(i < 9){
-                this.stamp[i].icon = 'mdi-check-circle'
+                this.stamp[i].icon = 'mdi-earth'
             }
         }
     },
