@@ -7,7 +7,7 @@
                 <v-menu offset-y>
                     <template #activator="{ on, attrs }">
                         <v-btn
-                            elevation="2"
+                            elevation="1"
                             icon
                             v-bind="attrs"
                             v-on="on"
@@ -29,7 +29,12 @@
                     </v-list>
                 </v-menu>
             </div>
-            <v-btn v-show="card" icon @click="this.indexLink">
+            <v-btn
+                v-show="card"
+                @click="this.indexLink"
+                elevation="1"
+                icon
+            >
                 <v-icon>mdi-card-bulleted</v-icon>
             </v-btn>
         </v-app-bar>
