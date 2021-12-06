@@ -2,7 +2,7 @@
     <div class="header">
         <h1>QR-rally</h1>
         <v-spacer></v-spacer>
-        <v-col cols="3">
+        <v-col cols="6" sm="4">
             <v-select
                 :items="this.$store.state.Language"
                 item-text="lang"
