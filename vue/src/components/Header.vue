@@ -1,15 +1,18 @@
 <template>
-    <div>
-        <header class="header">
+    <div class="header">
         <h1>QR-rally</h1>
-        <select name="Language" id="Language">
-            <option value="Lang">Language</option>
-            <option value="ja">日本語</option>
-            <option value="en">English</option>
-            <option value="ko">한국어</option>
-            <option value="ch">中國人</option>
-        </select>
-      </header>
+        <v-spacer></v-spacer>
+        <v-col cols="3">
+            <v-select
+                :items="this.$store.state.Language"
+                item-text="lang"
+                item-value="value"
+                label="Language"
+                prepend-icon="mdi-translate"
+                single-line
+                @change="language($event)"
+            ></v-select>
+        </v-col>
     </div>
 </template>
 <script>
@@ -53,10 +56,5 @@ div {
     height: 58px;
     box-shadow: 0px 4px 20px rgba(205, 205, 205, 0.5);
     background: #fff;
-}
-
-/* 言語選択部分 */
-#Language {
-    border: none;
 }
 </style>

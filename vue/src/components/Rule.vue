@@ -3,12 +3,12 @@
         <v-container>
             <v-row>
                 <v-col cols="12">
-                    <div id="title"></div>
+                    <strong>{{this.title}}</strong>
                 </v-col>
             </v-row>
             <v-row>
                 <v-col cols="12">
-                    <div id="detail"></div>
+                    {{this.detail}}
                 </v-col>
             </v-row>
         </v-container>
@@ -20,10 +20,6 @@ export default {
     props:{
         title: String,
         detail: String,
-    },
-    mounted() {
-        document.getElementById("title").innerHTML = this.title
-        document.getElementById("detail").innerHTML = this.detail
-    },
+    }
 }
 </script>
