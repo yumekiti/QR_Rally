@@ -13,10 +13,10 @@
             :title="$t('card.title')"
             :num="Number(this.$store.state.Stamp.done)"
         />
-        <Fab></Fab>
         <Footer
             :title="$t('footer.title')"
         />
+        <Fab></Fab>
     </div>
 </template>
 <script>
