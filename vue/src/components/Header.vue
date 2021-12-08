@@ -11,6 +11,7 @@
                 prepend-icon="mdi-translate"
                 single-line
                 @change="language($event)"
+                style="font-size: 16px !important "
             ></v-select>
         </v-col>
     </div>
