@@ -1,12 +1,13 @@
 <template>
-    <v-footer padless fixed>
+    <div>
         <v-col
-            class="text-center"
+            class="text-left"
             cols="12"
+            style="font-size: 12px"
+            v-html="this.title"
         >
-            {{this.title}}
         </v-col>
-    </v-footer>
+    </div>
 </template>
 <script>
 export default {

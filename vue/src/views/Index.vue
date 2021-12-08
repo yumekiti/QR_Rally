@@ -5,14 +5,14 @@
             :card="false"
             :lang="true"
         />
-        <Rule
-            :title="$t('rule.title')"
-            :detail="$t('rule.detail')"
-        />
         <Card
             :title="$t('card.title')"
             :num="Number(this.$store.state.Stamp.done)"
-            style="margin-bottom: 120px;"
+        />
+        <Rule
+            :title="$t('rule.title')"
+            :detail="$t('rule.detail')"
+            style="margin-bottom: 60px;"
         />
         <Footer
             :title="$t('footer.title')"

@@ -6,7 +6,7 @@
             fab
             bottom
             right
-            style="bottom: 60px; background-color: white;"
+            style="bottom: 18px; background-color: white;"
             elevation="6"
         >
             <v-icon style="font-size: 36px;">mdi-qrcode</v-icon>

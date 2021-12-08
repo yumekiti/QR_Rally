@@ -7,6 +7,7 @@ export default {
             const getHash = this.state.Stamp.hash.find(item => item.hash === hash)
             if(getHash && Boolean(!getHash.status)){
                 Cookies.set('stamp_' + getHash.name, 1)
+                getHash.status = true
                 this.state.Stamp.done ? Cookies.set('done', Number(this.state.Stamp.done)+1) : Cookies.set('done', 1)
                 this.state.Stamp.done = Cookies.get('done')
             }
