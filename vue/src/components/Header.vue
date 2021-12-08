@@ -1,6 +1,10 @@
 <template>
     <div class="header">
-        <h1>QR-rally</h1>
+        <h1
+            @click="this.indexLink"
+        >
+            QR-rally
+        </h1>
         <v-spacer></v-spacer>
         <v-col cols="6" sm="4">
             <v-select
