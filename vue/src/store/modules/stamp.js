@@ -17,46 +17,55 @@ export default {
         hash: [
             {
                 name: 'hoge',
+                icon: 'mdi-earth',
                 status: Cookies.get('stamp_hoge'),
                 hash: 'hash1'
             },
             {
                 name: 'piyo',
+                icon: 'mdi-earth',
                 status: Cookies.get('stamp_piyo'),
                 hash: 'hash2'
             },
             {
                 name: 'fuga',
+                icon: 'mdi-earth',
                 status: Cookies.get('stamp_fuga'),
                 hash: 'hash3'
             },
             {
                 name: 'hogehoge',
+                icon: 'mdi-earth',
                 status: Cookies.get('stamp_hogehoge'),
                 hash: 'hash4'
             },
             {
                 name: 'piyopiyo',
+                icon: 'mdi-earth',
                 status: Cookies.get('stamp_piyopiyo'),
                 hash: 'hash5'
             },
             {
                 name: 'fugafuga',
+                icon: 'mdi-earth',
                 status: Cookies.get('stamp_fugafuga'),
                 hash: 'hash6'
             },
             {
                 name: 'hogehogehoge',
+                icon: 'mdi-earth',
                 status: Cookies.get('stamp_hogehogehoge'),
                 hash: 'hash7'
             },
             {
                 name: 'piyopiyopiyo',
+                icon: 'mdi-earth',
                 status: Cookies.get('stamp_piyopiyopiyo'),
                 hash: 'hash8'
             },
             {
                 name: 'fugafugafuga',
+                icon: 'mdi-earth',
                 status: Cookies.get('stamp_fugafugafuga'),
                 hash: 'hash9'
             },
