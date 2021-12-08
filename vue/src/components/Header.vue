@@ -1,43 +1,18 @@
 <template>
-    <div>
-        <v-app-bar app>
-            <v-toolbar-title @click="this.indexLink">{{this.title}}</v-toolbar-title>
-            <v-spacer></v-spacer>
-            <div v-show="lang" class="text-center">
-                <v-menu offset-y>
-                    <template #activator="{ on, attrs }">
-                        <v-btn
-                            elevation="1"
-                            icon
-                            v-bind="attrs"
-                            v-on="on"
-                        >
-                            <v-icon>mdi-translate</v-icon>
-                        </v-btn>
-                    </template>
-                    <v-list>
-                        <v-list-item
-                            v-for="(item, index) in this.$store.state.Language"
-                            :key="index"
-                            link
-                            @click="language(item.value)"
-                        >
-                            <v-list-item-title>
-                                {{ item.lang }}
-                            </v-list-item-title>
-                        </v-list-item>
-                    </v-list>
-                </v-menu>
-            </div>
-            <v-btn
-                v-show="card"
-                @click="this.indexLink"
-                elevation="1"
-                icon
-            >
-                <v-icon>mdi-card-bulleted</v-icon>
-            </v-btn>
-        </v-app-bar>
+    <div class="header">
+        <h1>QR-rally</h1>
+        <v-spacer></v-spacer>
+        <v-col cols="6" sm="4">
+            <v-select
+                :items="this.$store.state.Language"
+                item-text="lang"
+                item-value="value"
+                label="Language"
+                prepend-icon="mdi-translate"
+                single-line
+                @change="language($event)"
+            ></v-select>
+        </v-col>
     </div>
 </template>
 <script>
@@ -66,3 +41,23 @@ export default {
     },
 }
 </script>
+<style scoped>
+div {
+    font-size: 62.5%;
+}
+
+/* header部分 */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.6rem;
+    width: 100%;
+    height: 58px;
+    box-shadow: 0px 4px 20px rgba(205, 205, 205, 0.5);
+    background: #fff;
+}
+</style>
