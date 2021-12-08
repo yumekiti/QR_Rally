@@ -1,23 +1,30 @@
 <template>
-    <div class="header">
-        <h1
-            @click="this.indexLink"
+    <div>
+        <v-app-bar
+            app
+            color="#ffffff"
+            elevation="0"
+            style="box-shadow: 0px 4px 20px rgba(205, 205, 205, 0.5) !important;"
         >
-            QR-rally
-        </h1>
-        <v-spacer></v-spacer>
-        <v-col cols="6" sm="4">
-            <v-select
-                :items="this.$store.state.Language"
-                item-text="lang"
-                item-value="value"
-                label="Language"
-                prepend-icon="mdi-translate"
-                single-line
-                @change="language($event)"
-                style="font-size: 16px !important "
-            ></v-select>
-        </v-col>
+            <v-toolbar-title
+                @click="this.indexLink"
+            >
+                QR-Rally
+            </v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-col cols="6" sm="4" style="margin-top: 20px;">
+                <v-select
+                    :items="this.$store.state.Language"
+                    item-text="lang"
+                    item-value="value"
+                    label="Language"
+                    prepend-icon="mdi-translate"
+                    single-line
+                    @change="language($event)"
+                    style="font-size: 16px !important "
+                ></v-select>
+            </v-col>
+        </v-app-bar>
     </div>
 </template>
 <script>
@@ -46,23 +53,3 @@ export default {
     },
 }
 </script>
-<style scoped>
-div {
-    font-size: 62.5%;
-}
-
-/* header部分 */
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.6rem;
-    width: 100%;
-    height: 58px;
-    box-shadow: 0px 4px 20px rgba(205, 205, 205, 0.5);
-    background: #fff;
-}
-</style>

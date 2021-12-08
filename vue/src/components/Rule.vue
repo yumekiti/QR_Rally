@@ -1,7 +1,7 @@
 <template>
     <div class="main__rule">
         <h2 style="white-space: pre-wrap;" v-text="this.title"></h2>
-        <p style="white-space: pre-wrap;" v-text="this.detail"></p>
+        <!-- <p style="white-space: pre-wrap;" v-text="this.detail"></p> -->
     </div>
 </template>
 <script>
