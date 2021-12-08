@@ -12,6 +12,7 @@
         <Card
             :title="$t('card.title')"
             :num="Number(this.$store.state.Stamp.done)"
+            style="margin-bottom: 100px;"
         />
         <Footer
             :title="$t('footer.title')"

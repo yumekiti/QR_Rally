@@ -12,7 +12,7 @@ export default {
 </script>
 <style>
 #app {
-  padding-top: 58px;
+  padding-top: 46px;
   height: 100%;
   width: 100%;
   background: url(/img/back2.svg);
