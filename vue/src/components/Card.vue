@@ -9,7 +9,7 @@
                 {{(index + 1)}}
             </div>
             <div v-else>
-                <v-icon style="font-size: 80px;" color="blue">{{stamp.icon}}</v-icon>
+                <v-icon style="font-size: 80px;" :color="stamp.color">{{stamp.icon}}</v-icon>
             </div>
         </div>
     </div>
