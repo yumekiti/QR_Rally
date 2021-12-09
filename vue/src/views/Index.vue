@@ -5,10 +5,9 @@
             :card="false"
             :lang="true"
         />
+        <Completed />
         <Rule
             :title="$t('rule.title')"
-            :detailTitle="$t('rule.detailTitle')"
-            :detail="$t('rule.detail')"
         />
         <Card
             :title="$t('card.title')"
@@ -27,6 +26,7 @@ import Card from '@/components/Card.vue'
 import Footer from '@/components/Footer.vue'
 import Rule from '@/components/Rule.vue'
 import Fab from '@/components/Fab.vue'
+import Completed from '@/components/Completed.vue'
 
 export default {
     name: 'Index',
@@ -36,6 +36,7 @@ export default {
         Footer,
         Rule,
         Fab,
+        Completed,
     },
 }
 </script>

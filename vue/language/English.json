@@ -1,12 +1,16 @@
 {
     "rule": {
-        "title": "Stamp Card",
-        "detail": "Please scan the QR code."
+        "title": "ECCコンピュータ専門学校\nstudent_council\nQR stamp_rally"
+    },
+    "completed": {
+        "title": "Congratulations.",
+        "detail": "Show it to the person in charge and get your prize!",
+        "back": "Close"
     },
     "card": {
         "title": "stamp card"
     },
     "footer": {
-        "title": "2021 Student Council  — Earth Festival"
+        "title": "&copy; 2021ECCコンピュータ専門学校 student_council"
     }
 }

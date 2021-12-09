@@ -10,11 +10,15 @@ export default {
                 getHash.status = true
                 this.state.Stamp.done ? Cookies.set('done', Number(this.state.Stamp.done)+1) : Cookies.set('done', 1)
                 this.state.Stamp.done = Cookies.get('done')
+                if(this.state.Stamp.done >= 9){
+                    this.state.Stamp.completed = true
+                }
             }
         }
     },
     state: {
         done: Cookies.get('done'),
+        completed: false,
         hash: [
             {
                 name: 'hoge',
