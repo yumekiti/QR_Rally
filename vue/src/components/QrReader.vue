@@ -25,7 +25,11 @@ export default {
     methods: {
         onDecode (result) {
             this.result = result
-            window.location.href = this.result;
+            if(this.result.match(/http/)){
+                window.location.href = this.result;
+            }else{
+                this.$router.push(this.result)
+            }
         },
 
         async onInit (promise) {
