@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 export default {
     namespaced:true,
     mutations: {
-        getStamp(state, hash){
+        getStamp(state, {hash, ga}){
             const getHash = this.state.Stamp.hash.find(item => item.hash === hash)
             if(getHash && Boolean(!getHash.status)){
                 Cookies.set('stamp_' + getHash.name, 1)
@@ -12,6 +12,7 @@ export default {
                 this.state.Stamp.done = Cookies.get('done')
                 if(this.state.Stamp.done >= 9){
                     this.state.Stamp.completed = true
+                    ga.event('スタンプ', '全部', '', 1);
                 }
             }
         }
