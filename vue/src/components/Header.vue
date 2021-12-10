@@ -50,6 +50,7 @@ export default {
     },
     mounted() {
         this.$i18n.locale = Cookies.get('language')
+        console.log(process.env.TEST_ENV);
     },
 }
 </script>
