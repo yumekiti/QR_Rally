@@ -33,10 +33,10 @@ iphoneならSafariを推奨しています。
 
 | 階 | １号館 | ２号館 | ３号館 |
 | -------- | -------- | -------- | -------- |
-| １階 | Building_2_1nd_floor | Building_1_1nd_floor | Building_2_6nd_floor |
-| ２階 | Building_1_2nd_floor | | Building_3_2nd_floor |
-| ３階 | Building_1_3nd_floor | Building_2_3nd_floor | Building_3_3nd_floor |
-| ４階 | Building_1_4nd_floor | | |
+| １階 | Building-2_1-floor | Building-1_1-floor | Building-2_6-floor |
+| ２階 | Building-1_2-floor | | Building-3_2-floor |
+| ３階 | Building-1_3-floor | Building-2_3-floor | Building-3_3-floor |
+| ４階 | Building-1_4-floor | | |
 
 ## 役割 (Twitter ID)
 ### システム構築・運用管理
