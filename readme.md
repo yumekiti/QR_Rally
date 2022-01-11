@@ -40,8 +40,8 @@ iphoneならSafariを推奨しています。
 
 ## 役割 (Twitter ID)
 ### システム構築・運用管理
-@yumekiti1204
+[@yumekiti1204](https://twitter.com/yumekiti1204)
 ### デザイン
-@ruka__311
+[@ruka__311](https://twitter.com/ruka__311)
 ### ポスター
-@smz_aoi
+[@smz_aoi](https://twitter.com/smz_aoi)
