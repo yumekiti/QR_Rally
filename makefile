@@ -7,7 +7,6 @@ init:
 .PHONY: up
 up:
 	$(dc) up -d --build
-	bash ./docker/mysql/sql.sh
 
 .PHONY: down
 down:
