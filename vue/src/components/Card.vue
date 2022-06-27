@@ -2,7 +2,7 @@
   <div>
     <div
       class="main__stamp"
-      v-for="(stamps, index) in this.$store.state.Stamp.hash"
+      v-for="(stamps, index) in groupedArray"
       :key="index"
     >
       <div
@@ -28,6 +28,22 @@ export default {
   props: {
     title: String,
     num: Number,
+  },
+  computed: {
+    groupedArray() {
+      const base = this.$store.state.Stamp.hash.length;
+      const split_cnt = 3; // 何個ずつに分割するか
+      const grouped_array = [];
+      for (let i = 0; i < Math.ceil(base / split_cnt); i++) {
+        let multiple_cnt = i * split_cnt; // 3の倍数
+        let result = this.$store.state.Stamp.hash.slice(
+          multiple_cnt,
+          multiple_cnt + split_cnt
+        );
+        grouped_array.push(result);
+      }
+      return grouped_array;
+    },
   },
 };
 </script>
