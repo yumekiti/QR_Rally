@@ -1,23 +1,23 @@
 version: "3"
 
 services:
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    ports:
+      - 8080:80
+    volumes:
+      - ./nginx/:/etc/nginx/conf.d/
+    working_dir: /var/www/
 
-    nginx:
-        image: nginx:alpine
-        container_name: nginx
-        ports:
-            - 8080:80
-        volumes:
-            - ./nginx/:/etc/nginx/conf.d/
-        working_dir: /var/www/
-
-    vue:
-        image: node:14.17.0
-        container_name: vue
-        working_dir: /mnt/vue
-        environment:
-            - CHOKIDAR_USEPOLLING=true
-            - NODE_OPTIONS="--max-old-space-size=1024"
-        volumes:
-            - ../vue:/mnt/vue/
-        command: [sh, -c, npm install && npm run serve -- --port 8080]
+  vue:
+    image: node:14.17.0
+    container_name: vue
+    working_dir: /mnt/vue
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - NODE_OPTIONS="--max-old-space-size=1024"
+      - VUE_APP_ANALYTICS_ID=
+    volumes:
+      - ../vue:/mnt/vue/
+    command: [sh, -c, npm install && npm run serve -- --port 8080]

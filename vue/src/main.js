@@ -5,15 +5,13 @@ import router from "./router";
 import store from "./store";
 import vuetify from "./plugins/vuetify";
 import VueAnalytics from "vue-analytics";
-import dotenv from 'dotenv'
-
-dotenv.config()
-const { Analytics_ID } = process.env
 
 Vue.config.productionTip = false;
 
+console.log(process.env.VUE_APP_ANALYTICS_ID);
+
 Vue.use(VueAnalytics, {
-  id: Analytics_ID || '',
+  id: process.env.VUE_APP_ANALYTICS_ID || '',
   router,
 });
 

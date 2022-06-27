@@ -47,7 +47,7 @@ iphone なら Safari を推奨しています。
 .env
 
 ```
-Analytics_ID=
+VUE_APP_ANALYTICS_ID=
 ```
 
 `/vue/stamps.js` ここに stamp の詳細を入れておく変更可
