@@ -8,8 +8,6 @@ import VueAnalytics from "vue-analytics";
 
 Vue.config.productionTip = false;
 
-console.log(process.env.VUE_APP_ANALYTICS_ID);
-
 Vue.use(VueAnalytics, {
   id: process.env.VUE_APP_ANALYTICS_ID || '',
   router,
