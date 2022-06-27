@@ -1,21 +1,23 @@
 <template>
   <v-app>
     <v-main>
-      <router-view/>
+      <router-view />
     </v-main>
   </v-app>
 </template>
 <script>
 export default {
-  name: 'App',
+  name: "App",
 };
 </script>
 <style>
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
 #app {
   background: url(/img/back2.svg);
   background-size: cover;
 }
 #app {
-  font-family: 'Source Sans Pro', sans-serif, MyYuGothicM, YuGothic, sans-serif;
+  font-family: "Roboto";
 }
 </style>
