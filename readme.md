@@ -52,6 +52,15 @@ VUE_APP_ANALYTICS_ID=
 
 `/vue/stamps.js` ここに stamp の詳細を入れておく変更可
 
+QR 生成
+
+/qr/hash
+
+```
+example >
+http://localhost:8080/qr/hogegegegoehgoeghoe
+```
+
 ## 役割 (Twitter ID)
 
 ### システム構築・運用管理

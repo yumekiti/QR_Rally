@@ -1,18 +1,8 @@
 <template>
   <div>
-    <div
-      class="main__stamp"
-      v-for="(stamps, index) in groupedArray"
-      :key="index"
-    >
-      <div
-        class="main__stamp--number"
-        v-for="(stamp, index) in stamps"
-        :key="index"
-      >
-        <div v-if="!stamp.status">
-          {{ index + 1 }}
-        </div>
+    <div class="main__stamp" v-for="(stamps, i) in groupedArray" :key="i">
+      <div class="main__stamp--number" v-for="(stamp, j) in stamps" :key="j">
+        <div v-if="!stamp.status">{{ i + i + (j + i + 1) }}</div>
         <div v-else>
           <v-icon style="font-size: 80px" :color="stamp.color">{{
             stamp.icon
