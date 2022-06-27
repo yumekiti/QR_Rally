@@ -1,16 +1,16 @@
 {
-    "rule": {
-        "title": "ECCコンピュータ専門学校 学生会\nQRスタンプラリー"
-    },
-    "completed": {
-        "title": "おめでとう",
-        "detail": "担当の方に見せて景品を貰おう！",
-        "back": "閉じる"
-    },
-    "card": {
-        "title": "スタンプカード"
-    },
-    "footer": {
-        "title": "&copy; 2021ECCコンピュータ専門学校学生会"
-    }
+  "rule": {
+    "title": "ECCコンピュータ専門学校 学生会\nQRスタンプラリー"
+  },
+  "completed": {
+    "title": "おめでとう",
+    "detail": "担当の方に見せて景品を貰おう！",
+    "back": "閉じる"
+  },
+  "card": {
+    "title": "スタンプカード"
+  },
+  "footer": {
+    "title": "&copy; 2021ECCコンピュータ専門学校学生会"
+  }
 }

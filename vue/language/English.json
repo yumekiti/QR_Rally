@@ -1,16 +1,16 @@
 {
-    "rule": {
-        "title": "ECCコンピュータ専門学校\nstudent_council\nQR stamp_rally"
-    },
-    "completed": {
-        "title": "Congratulations.",
-        "detail": "Show it to the person in charge and get your prize!",
-        "back": "Close"
-    },
-    "card": {
-        "title": "stamp card"
-    },
-    "footer": {
-        "title": "&copy; 2021ECCコンピュータ専門学校 student_council"
-    }
+  "rule": {
+    "title": "ECCコンピュータ専門学校\nstudent_council\nQR stamp_rally"
+  },
+  "completed": {
+    "title": "Congratulations.",
+    "detail": "Show it to the person in charge and get your prize!",
+    "back": "Close"
+  },
+  "card": {
+    "title": "stamp card"
+  },
+  "footer": {
+    "title": "&copy; 2021ECCコンピュータ専門学校 student_council"
+  }
 }
