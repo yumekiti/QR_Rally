@@ -22,7 +22,7 @@ export default {
   computed: {
     groupedArray() {
       const base = this.$store.state.Stamp.hash.length;
-      const split_cnt = 3; // 何個ずつに分割するか
+      const split_cnt = this.$store.state.Stamp.split_cnt; // 何個ずつに分割するか
       const grouped_array = [];
       for (let i = 0; i < Math.ceil(base / split_cnt); i++) {
         let multiple_cnt = i * split_cnt; // 3の倍数

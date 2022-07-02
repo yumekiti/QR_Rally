@@ -4,6 +4,7 @@ import Stamps from "@/stamps";
 export default {
   namespaced: true,
   mutations: {
+    // スタンプ取得時の処理
     getStamp(state, { hash, ga }) {
       const getHash = this.state.Stamp.hash.find((item) => item.hash === hash);
       if (getHash && Boolean(!getHash.status)) {
@@ -23,8 +24,13 @@ export default {
     },
   },
   state: {
+    // スタンプ取得数
     done: Cookies.get("done"),
+    // 達成したか
     completed: false,
+    // スタンプ
     hash: Stamps(),
+    // 分割数
+    split_cnt: 3,
   },
 };
