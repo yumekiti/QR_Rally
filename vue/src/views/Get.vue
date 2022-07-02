@@ -1,6 +1,4 @@
-<template>
-  <div></div>
-</template>
+<!-- スタンプ取得時 -->
 <script>
 export default {
   name: "Get",

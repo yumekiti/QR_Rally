@@ -1,3 +1,4 @@
+<!-- QRコード読み取り画面 -->
 <template>
   <div>
     <Header :title="'QR_Reader'" :card="true" :lang="false"></Header>

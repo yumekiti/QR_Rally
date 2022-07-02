@@ -1,3 +1,4 @@
+<!-- QRコード生成画面 -->
 <template>
   <div>
     <v-container class="d-flex justify-center align-center">

@@ -1,3 +1,4 @@
+<!-- スタンプ画面 -->
 <template>
   <div>
     <Header
