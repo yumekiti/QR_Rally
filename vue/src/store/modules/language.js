@@ -1,3 +1,4 @@
+// 言語リスト
 export default {
   namespaced: true,
   state: [

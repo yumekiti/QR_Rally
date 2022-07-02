@@ -1,6 +1,10 @@
 <template>
   <div>
-    <Header :title="'QR_Rally'" :card="false" :lang="true" />
+    <Header
+      :title="'QR_Rally'"
+      :card="false"
+      :lang="true"
+    />
     <Completed />
     <Rule :title="$t('rule.title')" />
     <Card
@@ -12,6 +16,7 @@
     <Fab></Fab>
   </div>
 </template>
+
 <script>
 import Header from "@/components/Header.vue";
 import Card from "@/components/Card.vue";
@@ -23,12 +28,12 @@ import Completed from "@/components/Completed.vue";
 export default {
   name: "Index",
   components: {
-    Header,
-    Card,
-    Footer,
-    Rule,
-    Fab,
-    Completed,
+    Header,     // ヘッダー
+    Card,       // カード
+    Footer,     // フッター
+    Rule,       // ルール
+    Fab,        // QRスキャンボタン
+    Completed,  // 完了時
   },
 };
 </script>
