@@ -28,7 +28,7 @@ export default () => {
     ],
     [
       "Building_1_1nd_floor_pYs",
-      "google-controller",
+      "controller",
       "red",
       "ca8586b79f10e37105878f3dc10a82f0",
     ],
